@@ -6,12 +6,26 @@
   th {
     text-align: left;
   }
+
+  .singleHeaderCell > div {
+    display: inline-block;
+  }
 </style>
 
 <thead>
   <tr>
     {#each gridConfig as config, i}
-      <th>{config.headerLabel}</th>
+      <th>
+        <div class="singleHeaderCell">
+          <div class="headerLabel">
+            <p>{config.headerLabel}</p>
+          </div>
+          <div class="sort">
+            <div class="carret-up" />
+            <div class="carret-down" />
+          </div>
+        </div>
+      </th>
     {/each}
   </tr>
 </thead>

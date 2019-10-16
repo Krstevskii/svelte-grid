@@ -5,23 +5,28 @@
   const gridConfig = [
     {
       headerLabel: "ID",
-      headerField: "id"
+      headerField: "id",
+      isSortable: true
     },
     {
       headerLabel: "Last name",
-      headerField: "last_name"
+      headerField: "last_name",
+      isSortable: true
     },
     {
       headerLabel: "Email",
-      headerField: "email"
+      headerField: "email",
+      isSortable: true
     },
     {
       headerLabel: "Gender",
-      headerField: "gender"
+      headerField: "gender",
+      isSortable: true
     },
     {
       headerLabel: "Job",
-      headerField: "job"
+      headerField: "job",
+      isSortable: true
     }
   ];
 </script>
