@@ -1,4 +1,16 @@
 <script>
+  //component
+  import GridHeader from "./GridHeader.svelte";
+  export let gridData = undefined;
+  export let gridConfig = undefined;
 </script>
 
-<h1>dynamic table</h1>
+<style>
+  table {
+    width: 100%;
+  }
+</style>
+
+<table class="grid">
+  <GridHeader {gridConfig} />
+</table>

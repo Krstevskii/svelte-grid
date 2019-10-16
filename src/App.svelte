@@ -1,6 +1,29 @@
 <script>
   import Grid from "./grid/Grid.svelte";
-  export let name;
+  import { data } from "./mock-data/mock-data.js";
+
+  const gridConfig = [
+    {
+      headerLabel: "ID",
+      headerField: "id"
+    },
+    {
+      headerLabel: "Last name",
+      headerField: "last_name"
+    },
+    {
+      headerLabel: "Email",
+      headerField: "email"
+    },
+    {
+      headerLabel: "Gender",
+      headerField: "gender"
+    },
+    {
+      headerLabel: "Job",
+      headerField: "job"
+    }
+  ];
 </script>
 
 <style>
@@ -9,4 +32,4 @@
   }
 </style>
 
-<Grid />
+<Grid gridData={data} {gridConfig} />
