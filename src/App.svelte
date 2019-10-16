@@ -2,6 +2,11 @@
   import Grid from "./grid/Grid.svelte";
   import { data } from "./mock-data/mock-data.js";
 
+  const initialSort = {
+    sortField: "id",
+    sortOrder: "desc"
+  };
+
   const gridConfig = [
     {
       headerLabel: "ID",
@@ -29,6 +34,11 @@
       isSortable: true
     }
   ];
+
+  function handleChangeInSort(event) {
+    const { sort } = event.detail;
+    console.log(sort);
+  }
 </script>
 
 <style>
@@ -37,4 +47,8 @@
   }
 </style>
 
-<Grid gridData={data} {gridConfig} />
+<Grid
+  gridInitialSort={initialSort}
+  gridData={data}
+  {gridConfig}
+  on:changeSort={handleChangeInSort} />

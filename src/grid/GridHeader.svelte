@@ -1,31 +1,44 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  // components
+  import GridHeaderCell from "./GridHeaderCell.svelte";
+
   export let gridConfig = undefined;
+  export let gridInitialSort = undefined;
+  export let sort = undefined;
+
+  const dispatch = createEventDispatcher();
+
+  function handleChangeInSort(event) {
+    const { sort: changedSort } = event.detail;
+
+    if (sort.sortField === changedSort.sortField) {
+      if (sort.sortOrder === "desc") {
+        sort.sortOrder = "asc";
+      } else {
+        sort.sortOrder = "desc";
+      }
+    } else {
+      sort = {
+        ...changedSort
+      };
+    }
+
+    dispatch("changeSort", {
+      sort
+    });
+  }
 </script>
 
 <style>
-  th {
-    text-align: left;
-  }
 
-  .singleHeaderCell > div {
-    display: inline-block;
-  }
 </style>
 
 <thead>
   <tr>
     {#each gridConfig as config, i}
-      <th>
-        <div class="singleHeaderCell">
-          <div class="headerLabel">
-            <p>{config.headerLabel}</p>
-          </div>
-          <div class="sort">
-            <div class="carret-up" />
-            <div class="carret-down" />
-          </div>
-        </div>
-      </th>
+      <GridHeaderCell {config} on:changeSort={handleChangeInSort} />
     {/each}
   </tr>
 </thead>

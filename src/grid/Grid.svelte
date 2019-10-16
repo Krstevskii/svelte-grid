@@ -3,6 +3,11 @@
   import GridHeader from "./GridHeader.svelte";
   export let gridData = undefined;
   export let gridConfig = undefined;
+  export let gridInitialSort = undefined;
+
+  let sort = {
+    ...gridInitialSort
+  };
 </script>
 
 <style>
@@ -12,5 +17,5 @@
 </style>
 
 <table class="grid">
-  <GridHeader {gridConfig} />
+  <GridHeader {sort} {gridConfig} {gridInitialSort} on:changeSort />
 </table>
