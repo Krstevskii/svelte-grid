@@ -4,6 +4,7 @@
   // components
   import GridHeaderCell from "./GridHeaderCell.svelte";
 
+  // input properties
   export let gridConfig = undefined;
   export let gridInitialSort = undefined;
   export let sort = undefined;
@@ -38,7 +39,7 @@
 <thead>
   <tr>
     {#each gridConfig as config, i}
-      <GridHeaderCell {config} on:changeSort={handleChangeInSort} />
+      <GridHeaderCell {config} {sort} on:changeSort={handleChangeInSort} />
     {/each}
   </tr>
 </thead>

@@ -1,6 +1,9 @@
 <script>
   //component
-  import GridHeader from "./GridHeader.svelte";
+  import GridHeader from "./grid-header/GridHeader.svelte";
+  import GridBody from "./grid-body/GridBody.svelte";
+
+  // input properties
   export let gridData = undefined;
   export let gridConfig = undefined;
   export let gridInitialSort = undefined;
@@ -18,4 +21,5 @@
 
 <table class="grid">
   <GridHeader {sort} {gridConfig} {gridInitialSort} on:changeSort />
+  <GridBody {gridConfig} {gridData} />
 </table>
